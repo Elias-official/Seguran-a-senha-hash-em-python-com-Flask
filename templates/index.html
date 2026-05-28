@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Security System</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+<div id="toast"></div>
+<div id="popupHash" class="popup"></div>
+
+<div class="container">
+
+    <h1>Security System</h1>
+
+    <form method="POST">
+
+        <label for="senha">
+            Senha
+        </label>
+
+        <div class="senha-box">
+
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite a senha"
+            >
+
+            <button
+                type="button"
+                onclick="mostrarSenha()"
+            >
+                👁
+            </button>
+
+        </div>
+
+        <label for="hash">
+            Hash
+        </label>
+
+        <input
+            type="text"
+            id="hash"
+            name="hash"
+            placeholder="Digite o hash"
+        >
+
+        <label for="opcao">
+            Opções
+        </label>
+
+        <select
+            id="opcao"
+            name="opcao"
+        >
+
+            <option value="1">
+                Verificar Força
+            </option>
+
+            <option value="2">
+                Gerar Hash
+            </option>
+
+            <option value="3">
+                Verificar Hash
+            </option>
+
+            <option value="4">
+                Demonstrar Brute Force
+            </option>
+
+            <option value="5">
+                Vazamentos
+            </option>
+
+        </select>
+
+        <button type="submit">
+            Executar
+        </button>
+
+    </form>
+
+    <div class="resultado">
+
+        <h2 id="texto">
+            Digite uma senha
+        </h2>
+
+        <div class="forca-container">
+            <div id="barra"></div>
+        </div>
+
+        <p class="mensagem">
+            Sua força aparecerá aqui
+        </p>
+
+        <div id="acoes">
+
+            <button
+                type="button"
+                class="btn-gerar"
+                onclick="gerarSenha()"
+            >
+                Gerar Senha
+            </button>
+
+            <button
+                type="button"
+                class="btn-continuar"
+            >
+                Continuar
+            </button>
+
+            <button
+                type="button"
+                class="btn-trocar"
+                onlick="trocarSenha()"
+            >
+                Trocar Senha
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script
+    src="{{ url_for('static', filename='style.js') }}"
+></script>
+
+</body>
+</html>
